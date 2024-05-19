@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Image Classification</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="script.js" async></script>
+    <style>
+        /* Hauptdesign für zentriertes Layout */
+        body {
+            background-color: #e0f7fa; /* Helle Farbe für Hintergrund */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        } 
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 600px;
+        }
+
+        h1 {
+            color: #006064; /* Dunkle Akzentfarbe */
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-control-file {
+            margin: 0 auto; /* Zentriere das "Choose File"-Element */
+        }
+
+        .table {
+            margin-top: 20px;
+            width: 100%;
+            text-align: center; /* Zentriere den Text in der gesamten Tabelle */
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #dee2e6;
+            text-align: center; /* Zentriert den Inhalt von th und td */
+        }
+
+        th {
+            background-color: #006064; /* Kopfzeile farbig */
+            color: #ffffff;
+        }
+
+        img {
+            margin-top: 20px;
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px; /* Abgerundete Ecken ohne Rand */
+        }
+
+        p {
+            margin-top: 20px;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Clothing Classification</h1>
+        <p style="font-size: 22px;">DeepJavaLibrary (DJL) Demonstration <br> by Rebecca Ganjineh (ganjireb)  </p>
+    
+        <form>
+            <div class="form-group">
+                <label for="exampleFormControlFile1" style="color: #004d40;">Bitte Bild hochladen (jpeg, png)</label>
+                <input type="file" accept="image/png, image/jpeg" class="form-control-file btn btn-info" id="image" name="image"
+                    onchange="checkFiles(this.files);">
+            </div>
+        </form>
+
+        <div id="answerPart" style="visibility: hidden;">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Class</th>
+                        <th>Probability</th>
+                    </tr>
+                </thead>
+                <tbody id="answer"></tbody>
+            </table>
+
+            <p id="previewPart"><b>Analyzed Image:</b></p>
+            <img id="preview" width="220" src="#" alt="preview" />
+        </div>
+    </div>
+
+</body>
+
+</html>
